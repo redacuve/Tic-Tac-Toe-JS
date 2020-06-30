@@ -1,7 +1,10 @@
 import "./style.css";
 
-import { getPlayer1, getPlayer2, sendAlert } from "./domHandler";
+import { getPlayer1, getPlayer2, sendAlert, displayPlayerName, showGameboard, hidePlayersName, changeSubtitleLabel } from "./domHandler";
 import { validPlayers } from "./helperFunctions";
+import Gameboard from './gameboard';
+
+let gboard;
 
 function moveTo(e) {
   console.log("moved to");
@@ -12,11 +15,14 @@ function startGame(e) {
   let player1 = getPlayer1();
   let player2 = getPlayer2();
   if (validPlayers(player1, player2)) {
-    console.log("valid players");
+    gboard = Gameboard(player1,player2);
+    displayPlayerName(player1);
+    hidePlayersName();
+    showGameboard();
+    changeSubtitleLabel('Game Started');
   } else {
     sendAlert("Player's name can't be blank")
   }
-
 }
 
 function resetGame(e) {

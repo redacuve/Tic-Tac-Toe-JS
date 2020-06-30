@@ -17,3 +17,19 @@ export function getPlayer2() {
 export function sendAlert(textAlert){
   alert(textAlert); // eslint-disable-line no-alert
 }
+
+export function displayPlayerName(player){
+  document.querySelector('.current-player').textContent = player.name;
+}
+
+export function hidePlayersName(){
+  document.querySelector('#players-name').classList.add('hide');
+}
+
+export function showGameboard(){
+  document.querySelector('#game-board').classList.remove('hide');
+}
+
+export function changeSubtitleLabel(text){
+  document.querySelector('#title-gameboard').textContent = text
+}
