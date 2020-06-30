@@ -13,3 +13,7 @@ export function getPlayer2() {
   player.symbol = document.getElementsByName('symbol')[0].checked ? 'O': 'X';
   return player;
 }
+
+export function sendAlert(textAlert){
+  alert(textAlert); // eslint-disable-line no-alert
+}

@@ -1,8 +1,7 @@
 import "./style.css";
 
-import { getPlayer1, getPlayer2 } from "./domHandler";
+import { getPlayer1, getPlayer2, sendAlert } from "./domHandler";
 import { validPlayers } from "./helperFunctions";
-
 
 function moveTo(e) {
   console.log("moved to");
@@ -12,11 +11,12 @@ function moveTo(e) {
 function startGame(e) {
   let player1 = getPlayer1();
   let player2 = getPlayer2();
-  if (validPlayers(player1.name, player2.name)) {
+  if (validPlayers(player1, player2)) {
     console.log("valid players");
   } else {
-    console.log("invalid players");
+    sendAlert("Player's name can't be blank")
   }
+
 }
 
 function resetGame(e) {
