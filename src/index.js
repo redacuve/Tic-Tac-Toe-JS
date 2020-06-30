@@ -1,27 +1,58 @@
 import "./style.css";
 
-import { getPlayer1, getPlayer2, sendAlert, displayPlayerName, showGameboard, hidePlayersName, changeSubtitleLabel } from "./domHandler";
+import {
+  getP1,
+  getP2,
+  sendAlert,
+  displayPlayerName,
+  showGameboard,
+  hidePlayersName,
+  changeSubtitleLabel,
+  displayTurn,
+} from "./domHandler";
 import { validPlayers } from "./helperFunctions";
-import Gameboard from './gameboard';
+import Gameboard from "./gameboard";
 
 let gboard;
+let xturn = true;
 
 function moveTo(e) {
-  console.log("moved to");
-  console.log(e);
+  const indx = e.target.id.match(/\d+/)[0];
+  let winner = gboard.winStatus();
+  if (!winner) {
+    if (gboard.validateMove(indx)) {
+      gboard.sendMove(xturn, indx);
+      if (xturn) {
+        displayTurn(gboard.getPlayer1(), indx);
+        console.log(gboard.getPlayer2());
+        displayPlayerName(gboard.getPlayer2());
+        
+      } else {
+        displayTurn(gboard.getPlayer2(), indx);
+        displayPlayerName(gboard.getPlayer1());
+      }
+      xturn = !xturn;
+    } else {
+      sendAlert("This place is already taken");
+    }
+  }
+  winner = gboard.winStatus();
+  if (winner) {
+    gboard.gameFinish();
+  }
 }
 
 function startGame(e) {
-  let player1 = getPlayer1();
-  let player2 = getPlayer2();
+  let player1 = getP1();
+  let player2 = getP2();
   if (validPlayers(player1, player2)) {
-    gboard = Gameboard(player1,player2);
+    gboard = Gameboard(player1, player2);
     displayPlayerName(player1);
     hidePlayersName();
     showGameboard();
-    changeSubtitleLabel('Game Started');
+    changeSubtitleLabel("Game Started");
   } else {
-    sendAlert("Player's name can't be blank")
+    sendAlert("Player's name can't be blank");
   }
 }
 

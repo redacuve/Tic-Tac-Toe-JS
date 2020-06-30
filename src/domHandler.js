@@ -1,16 +1,18 @@
-export function getPlayer1() {
-  let player = { 'name': null, "symbol": null }
+import Player from './player';
+
+export function getP1() {
   let node = document.querySelector('#player1');
-  player.name = node.value;
-  player.symbol = document.getElementsByName('symbol')[0].checked ? 'X': 'O';
+  let name = node.value;
+  let symbol = document.getElementsByName('symbol')[0].checked ? 'X': 'O';
+  let player = Player(name,symbol);
   return player;
 }
 
-export function getPlayer2() {
-  let player = { 'name': null, "symbol": null }
+export function getP2() {
   let node = document.querySelector('#player2');
-  player.name = node.value;
-  player.symbol = document.getElementsByName('symbol')[0].checked ? 'O': 'X';
+  let name = node.value;
+  let symbol = document.getElementsByName('symbol')[0].checked ? 'O': 'X';
+  let player = Player(name,symbol);
   return player;
 }
 
@@ -19,7 +21,17 @@ export function sendAlert(textAlert){
 }
 
 export function displayPlayerName(player){
-  document.querySelector('.current-player').textContent = player.name;
+  document.querySelector('.current-player').textContent = player.getName();
+}
+
+export function displayTurn(player,index){
+  const elem = document.createElement("i");
+  if (player.getSymbol() === "X"){
+    elem.classList = "fas fa-times fa-7x";
+  } else {
+    elem.classList = "far fa-circle fa-7x";
+  }
+  document.querySelector(`#row-${index}`).appendChild(elem);
 }
 
 export function hidePlayersName(){
