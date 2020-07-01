@@ -1,0 +1,51 @@
+.hide {
+  display: none;
+}
+
+.title-cont {
+  margin: 1rem 0;
+}
+
+.player {
+  padding-bottom: 2rem;
+}
+
+#players-name {
+  border: 1px solid;
+  border-radius: 6px;
+  padding: 2rem;
+  width: 40%;
+  height: max-content;
+  margin: 0 auto;
+}
+
+.radiobuttons {
+  margin-top: 15px;
+}
+
+.board-container {
+  margin-bottom: 20px;
+}
+
+.board {
+  position: relative;
+  width: 50%;
+  height: 500px;
+  margin: 0 auto;
+}
+
+.cell {
+  position: relative;
+  width: 224px;
+  height: 168px;
+}
+
+.fas,
+.far {
+  margin: 10% 0;
+}
+
+#newgame,
+#resetgame {
+  margin: 1rem 0;
+}
