@@ -31,6 +31,7 @@ export function displayTurn(player,index){
   } else {
     elem.classList = "far fa-circle fa-7x";
   }
+  elem.id = `i-row-${index}`;
   document.querySelector(`#row-${index}`).appendChild(elem);
 }
 

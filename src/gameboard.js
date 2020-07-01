@@ -15,6 +15,7 @@ const Gameboard = (player1, player2) => {
       [0, 4, 8],
       [2, 4, 6],
     ];
+    let winFor = false;
 
     winner.forEach((element) => {
       if (
@@ -22,17 +23,20 @@ const Gameboard = (player1, player2) => {
         && board[element[1]] === 'X'
         && board[element[2]] === 'X'
       ) {
-        return 'X';
+        winFor = 'X';
       } else if (
         board[element[0]] === 'O'
         && board[element[1]] === 'O'
         && board[element[2]] === 'O'
       ) {
-        return 'O';
+        winFor = 'O';
       }
     });
 
-    return false;
+    if (!board.includes(null) && !winFor) {
+      winFor = 'T';
+    }
+    return winFor;
   }
 
   const validateMove = (i) =>{
@@ -92,8 +96,12 @@ const Gameboard = (player1, player2) => {
   const getPlayer2 = () => {
     return player2;
   }
-  
-  return { winStatus, validateMove, sendMove, getPlayer1, getPlayer2 };
+
+  const gameFinish = () => {
+    console.log("gamefinish")
+  }
+
+  return { winStatus, validateMove, sendMove, getPlayer1, getPlayer2, gameFinish };
 };
 
 export default Gameboard;

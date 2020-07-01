@@ -16,15 +16,14 @@ import Gameboard from "./gameboard";
 let gboard;
 let xturn = true;
 
-function moveTo(e) {
-  const indx = e.target.id.match(/\d+/)[0];
+function moveTo(event) {
+  const indx = event.target.id.match(/\d+/)[0];
   let winner = gboard.winStatus();
   if (!winner) {
     if (gboard.validateMove(indx)) {
       gboard.sendMove(xturn, indx);
       if (xturn) {
         displayTurn(gboard.getPlayer1(), indx);
-        console.log(gboard.getPlayer2());
         displayPlayerName(gboard.getPlayer2());
         
       } else {
@@ -74,15 +73,15 @@ function addAllListeners() {
     .querySelector(".button.is-danger.is-rounded")
     .addEventListener("click", resetGame);
   document.querySelector("#newgame .button").addEventListener("click", newGame);
-  document.getElementById("row-0").addEventListener("click", moveTo);
-  document.getElementById("row-1").addEventListener("click", moveTo);
-  document.getElementById("row-2").addEventListener("click", moveTo);
-  document.getElementById("row-3").addEventListener("click", moveTo);
-  document.getElementById("row-4").addEventListener("click", moveTo);
-  document.getElementById("row-5").addEventListener("click", moveTo);
-  document.getElementById("row-6").addEventListener("click", moveTo);
-  document.getElementById("row-7").addEventListener("click", moveTo);
-  document.getElementById("row-8").addEventListener("click", moveTo);
+  document.getElementById("row-0").addEventListener("click", moveTo, true);
+  document.getElementById("row-1").addEventListener("click", moveTo, true);
+  document.getElementById("row-2").addEventListener("click", moveTo, true);
+  document.getElementById("row-3").addEventListener("click", moveTo, true);
+  document.getElementById("row-4").addEventListener("click", moveTo, true);
+  document.getElementById("row-5").addEventListener("click", moveTo, true);
+  document.getElementById("row-6").addEventListener("click", moveTo, true);
+  document.getElementById("row-7").addEventListener("click", moveTo, true);
+  document.getElementById("row-8").addEventListener("click", moveTo, true);
 }
 
 addAllListeners();
