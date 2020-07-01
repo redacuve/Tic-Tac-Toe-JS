@@ -76,10 +76,10 @@ function newGame() {
 
 function addAllListeners() {
   document
-    .querySelector('.button.is-primary.is-inverted')
+    .querySelector('.button.is-link.is-inverted')
     .addEventListener('click', startGame);
   document
-    .querySelector('.button.is-danger.is-rounded')
+    .querySelector('#resetgame .button')
     .addEventListener('click', resetGame);
   document.querySelector('#newgame .button').addEventListener('click', newGame);
   document.getElementById('row-0').addEventListener('click', moveTo, true);

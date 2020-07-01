@@ -10,9 +10,9 @@
 <body>
     <div class="container">
         <div class="title-cont has-text-centered">
-          <h1 class="title has-text-primary">TIC - TAC - TOE</h1>
+          <h1 class="title has-text-link">TIC - TAC - TOE</h1>
         </div>
-        <div class="input-of-name has-background-primary" id="players-name">
+        <div class="input-of-name has-background-info" id="players-name">
           <!-- player 1 -->
           <div class="field">
             <label for="player1" class="label">Player 1</label>
@@ -20,7 +20,7 @@
               <input id="player1" class="input is-primary" type="text" placeholder="player 1">
             </div>
             <div class="control radiobuttons">
-              <!-- <p>Select your Symbol:</p> -->
+              <p class="is-inline-block">Symbol: </p>
               <label class="radio">
                 <p class="has-text-weight-bold has-text-grey">
                   <input type="radio" name="symbol" checked>&nbsp;&nbsp;X
@@ -41,8 +41,8 @@
             </div>
           </div>
   
-          <div class="control">
-            <button class="button is-primary is-inverted">Start Game!</button>
+          <div class="buttons is-centered"">
+            <button class="button is-link is-inverted">Start Game!</button>
           </div>
         </div>
   
@@ -53,27 +53,27 @@
           <div class="board-container">
             <table class="table is-striped board">
               <tr class="th">
-                <td id="row-0" class="cell has-text-centered is-selected"></td>
+                <td id="row-0" class="cell has-text-centered has-background-info"></td>
                 <td id="row-1" class="cell has-text-centered"></td>
-                <td id="row-2" class="cell has-text-centered is-selected"></td>
+                <td id="row-2" class="cell has-text-centered has-background-info"></td>
               </tr> 
               <tr class="th">
                 <td id="row-3" class="cell has-text-centered is-vert"></td>
-                <td id="row-4" class="cell has-text-centered is-selected"></td>
+                <td id="row-4" class="cell has-text-centered has-background-info"></td>
                 <td id="row-5" class="cell has-text-centered"></td>
               </tr>
                 <tr class="th">
-                  <td id="row-6" class="cell is-selected has-text-centered"></td>
+                  <td id="row-6" class="cell has-background-info has-text-centered"></td>
                   <td id="row-7" class="cell has-text-centered"></td>
-                  <td id="row-8" class="cell has-text-centered is-selected"></td>
+                  <td id="row-8" class="cell has-text-centered has-background-info"></td>
               </tr>
             </table>
           </div>
           <div id="resetgame">
-            <button class="button is-danger is-rounded">Reset the game</button>
+            <button class="button is-danger">Reset the game</button>
           </div>
           <div id="newgame" class="hide">
-            <button class="button is-success is-rounded">NewGame</button>
+            <button class="button is-success">NewGame</button>
           </div>
         </div>
       </div>
