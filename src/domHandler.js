@@ -46,3 +46,11 @@ export function showGameboard(){
 export function changeSubtitleLabel(text){
   document.querySelector('#title-gameboard').textContent = text
 }
+
+export function hidePlayerLabel(){
+  document.querySelector('.has-text-weight-bold.h3').classList.add('hide');
+}
+
+export function showNewGameButton(){
+  document.querySelector('#newgame').classList.remove('hide');
+}

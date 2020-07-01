@@ -9,8 +9,10 @@ import {
   hidePlayersName,
   changeSubtitleLabel,
   displayTurn,
+  hidePlayerLabel,
+  showNewGameButton
 } from "./domHandler";
-import { validPlayers } from "./helperFunctions";
+import { validPlayers, getWinner } from "./helperFunctions";
 import Gameboard from "./gameboard";
 
 let gboard;
@@ -37,11 +39,13 @@ function moveTo(event) {
   }
   winner = gboard.winStatus();
   if (winner) {
-    gboard.gameFinish();
+    hidePlayerLabel();
+    showNewGameButton();
+    changeSubtitleLabel(getWinner(winner,gboard));
   }
 }
 
-function startGame(e) {
+function startGame() {
   let player1 = getP1();
   let player2 = getP2();
   if (validPlayers(player1, player2)) {
@@ -60,9 +64,8 @@ function resetGame(e) {
   console.log(e);
 }
 
-function newGame(e) {
-  console.log("new game");
-  console.log(e);
+function newGame() {
+  document.location.reload();
 }
 
 function addAllListeners() {
