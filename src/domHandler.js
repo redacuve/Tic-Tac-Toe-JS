@@ -1,4 +1,5 @@
 import Player from './player';
+import { capitalize } from './helperFunctions';
 
 export function getP1() {
   let node = document.querySelector('#player1');
@@ -21,7 +22,7 @@ export function sendAlert(textAlert){
 }
 
 export function displayPlayerName(player){
-  document.querySelector('.current-player').textContent = player.getName();
+  document.querySelector('.current-player').textContent = capitalize(player.getName());
 }
 
 export function displayTurn(player,index){
@@ -51,6 +52,20 @@ export function hidePlayerLabel(){
   document.querySelector('.has-text-weight-bold.h3').classList.add('hide');
 }
 
+export function showPlayerLabel(){
+  document.querySelector('.has-text-weight-bold.h3').classList.remove('hide');
+}
+
 export function showNewGameButton(){
   document.querySelector('#newgame').classList.remove('hide');
+}
+
+export function hideNewGameButton(){
+  document.querySelector('#newgame').classList.add('hide');
+}
+
+export function clearRows(){
+  for(let i = 0; i <= 8 ; i += 1){
+    document.querySelector(`#row-${i}`).textContent = '';
+  }
 }

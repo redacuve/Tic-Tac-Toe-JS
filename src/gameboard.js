@@ -101,7 +101,11 @@ const Gameboard = (player1, player2) => {
     console.log("gamefinish")
   }
 
-  return { winStatus, validateMove, sendMove, getPlayer1, getPlayer2, gameFinish };
+  const clearBoard = () => {
+    board = [null, null, null, null, null, null, null, null, null];
+  }
+
+  return { winStatus, validateMove, sendMove, getPlayer1, getPlayer2, gameFinish, clearBoard };
 };
 
 export default Gameboard;

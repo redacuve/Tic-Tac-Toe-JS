@@ -10,7 +10,10 @@ import {
   changeSubtitleLabel,
   displayTurn,
   hidePlayerLabel,
-  showNewGameButton
+  showPlayerLabel,
+  showNewGameButton,
+  hideNewGameButton,
+  clearRows
 } from "./domHandler";
 import { validPlayers, getWinner } from "./helperFunctions";
 import Gameboard from "./gameboard";
@@ -59,9 +62,13 @@ function startGame() {
   }
 }
 
-function resetGame(e) {
-  console.log("reset Game");
-  console.log(e);
+function resetGame() {
+  displayPlayerName(gboard.getPlayer1())
+  showPlayerLabel();
+  changeSubtitleLabel('Game Started');
+  hideNewGameButton();
+  clearRows();
+  gboard.clearBoard();
 }
 
 function newGame() {
