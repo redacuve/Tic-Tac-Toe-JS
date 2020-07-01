@@ -1,8 +1,5 @@
-import {sendAlert} from './domHandler';
-
 const Gameboard = (player1, player2) => {
   let board = [null, null, null, null, null, null, null, null, null];
-  let xTurn = true;
 
   const winStatus = () => {
     const winner = [
@@ -37,75 +34,39 @@ const Gameboard = (player1, player2) => {
       winFor = 'T';
     }
     return winFor;
-  }
+  };
 
-  const validateMove = (i) =>{
-    if (board[i] === null){
+  const validateMove = (i) => {
+    if (board[i] === null) {
       return true;
-    } else {
-      return false;
     }
-  }
+    return false;
+  };
 
   const sendMove = (turn, i) => {
-    if (turn){
+    if (turn) {
       board[i] = player1.getSymbol();
     } else {
       board[i] = player2.getSymbol();
     }
-  }
+  };
 
-  const move = (indx) => {
-    if (validateMove(indx)){
-      sendMove(xturn, indx);
-      xturn = !xturn;
-    } else {
-      sendAlert('This place is already taken');
-    }
+  const getPlayer1 = () => player1;
 
-
-    if (board[indx] === null){
-      if (movX) {
-        board[index] = 'X';
-        if (player1.getSymbol() === 'O') {
-          DisplayController().changeName(player1.getName());
-        } else {
-          DisplayController().changeName(player2.getName());
-        }
-        DisplayController().addSymbol('X', index);
-        movX = !movX;
-      } else {
-        board[index] = 'O';
-        if (player1.getSymbol() === 'X') {
-          DisplayController().changeName(player1.getName());
-        } else {
-          DisplayController().changeName(player2.getName());
-        }
-        DisplayController().addSymbol('O', index);
-        movX = !movX;
-      }
-    } else {
-      sendAlert('This place is already taken');
-    }
-  }
-
-  const getPlayer1 = () =>{
-    return player1;
-  }
-
-  const getPlayer2 = () => {
-    return player2;
-  }
-
-  const gameFinish = () => {
-    console.log("gamefinish")
-  }
+  const getPlayer2 = () => player2;
 
   const clearBoard = () => {
     board = [null, null, null, null, null, null, null, null, null];
-  }
+  };
 
-  return { winStatus, validateMove, sendMove, getPlayer1, getPlayer2, gameFinish, clearBoard };
+  return {
+    winStatus,
+    validateMove,
+    sendMove,
+    getPlayer1,
+    getPlayer2,
+    clearBoard,
+  };
 };
 
 export default Gameboard;
