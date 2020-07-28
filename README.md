@@ -41,8 +41,6 @@
 
 * [Contact](#contact)
 
-* [Acknowledgements](#acknowledgements)
-
 <!-- ABOUT THE PROJECT -->
 
 ## About The Project
@@ -57,6 +55,9 @@ It is based in a previous collaborative project, link <a href="https://github.co
 
 For more details about this project and it's requeriments go to <a href="https://www.theodinproject.com/courses/javascript/lessons/tic-tac-toe-javascript"> The Odin Project</a>
 
+<p align="center">
+  <img src="tictactoe.gif" width="450">
+</p>
 
 ### Built With
 
@@ -135,9 +136,3 @@ This project is under the <a href="https://www.gnu.org/licenses/gpl-3.0.html">GN
 Rey David Cuevas Vela - [@redacuve](https://twitter.com/redacuve) - [redacuve@gmail.com](mailto:redacuve@gmail.com) -[linkedin.com/in/redacuve/](https://www.linkedin.com/in/redacuve/)
 
 Project Link: [github.com/redacuve/Tic-Tac-Toe-JS](https://github.com/redacuve/Tic-Tac-Toe-JS) - Tic Tac Toe Project.
-
-<!-- ACKNOWLEDGEMENTS -->
-
-## Acknowledgements
-
-* [Rey David Cuevas Vela](https://github.com/redacuve)
